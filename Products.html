@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="style.css">
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Amarante&display=swap" rel="stylesheet">
+    <title>App Products</title>
+
+</head>
+<body>
+    <div class="main">
+        <div class="navbar">
+            <div class="icon">
+                <h2 class="logo">xuremi</h2>
+            </div>
+            <div class="menu" id="menu">
+                <ul>
+                    <li><a href="index.php">HOME</a></li>
+                    
+                    <li><a href="Products.html">PRODUCTS</a></li>
+                    <li><a href="About.html">ABOUT</a></li>
+                    
+                    <li><a href="news.php">NEWS</a></li>
+                    <li><a href="customercompany.php">Myfiles</a></li>
+                    <li class="search-menu-item">
+                        <div class="search">
+                            <input type="text" class="search__input" placeholder="Search...">
+                            <div class="search__icon">
+                                <ion-icon name="search"></ion-icon>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="hamburger" id="hamburger">
+                <ion-icon name="menu-outline"></ion-icon>
+            </div>
+        </div>
+    </div>
+
+    <h1>Products</h1>
+<style>
+    .message{color:darkcyan;}
+</style>
+    <!-- Request Product Card -->
+    <div class="request-card" onclick="openRequestForm()">
+        <ion-icon name="add-circle-outline" size="large"></ion-icon>
+        <h4>Request a Product</h4>
+        <div class="message"><p>Click here to request your product.</p></div>
+        
+    </div>
+
+    <!-- Communication Toggle -->
+    <div class="toggle-communication">
+        <button onclick="toggleCommunication()">Contact Us</button>
+        <div class="communication-panel" id="communicationPanel">
+            <h4>Send a Message</h4>
+            <textarea rows="4" placeholder="Type your message here..."></textarea><br>
+            <button onclick="sendMessage()">Send</button>
+        </div>
+    </div>
+
+    <!-- Existing Products Section -->
+    <div class="productContainer">
+        <!-- Products will be dynamically injected here -->
+    </div>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        fetch('index.php?action=get_products')
+            .then(response => response.json())
+            .then(products => {
+                const productContainer = document.querySelector('.productContainer');
+                products.forEach(product => {
+                    const productCard = document.createElement('div');
+                    productCard.classList.add('productCard');
+                    productCard.innerHTML = `
+                    <a href="usercomment.php?id=${product.id}" class="productLink">
+                        <img src="${product.image_url}" alt="${product.name}">
+                        
+                    </a>
+                    <h4>${product.name}</h4> 
+                    <a href="${product.file_url}" class="download-btn" download>
+                        <ion-icon name="cloud-download-outline"></ion-icon> Download
+                    </a>
+                    `;
+                    productContainer.appendChild(productCard);
+                });
+            })
+            .catch(error => {
+                console.error('Error fetching products:', error);
+            });
+
+       
+    });
+
+    function openRequestForm() {
+        alert('Private request form will open here.');
+    }
+
+    function toggleCommunication() {
+        const panel = document.getElementById('communicationPanel');
+        panel.style.display = panel.style.display === 'none' || panel.style.display === '' ? 'block' : 'none';
+    }
+
+    function sendMessage() {
+        alert('Your message has been sent!');
+    }
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>

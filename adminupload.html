@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="adm.css">
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Amarante&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload App</title>
+</head>
+<body>
+    <div class="main"></div>
+    <div class="navbar">
+        <div class="icon">
+            <h2 class="logo">xuremi</h2>
+        </div>
+        <div class="menu" id="menu">
+            <ul>
+                <li><a href="index.php">HOME</a></li>
+                <li><a href="customercompany.php">PRODUCTS</a></li>
+                <li><a href="About.html">ABOUT</a></li>
+                <li><a href="#">CONTACTS</a></li>
+                <li><a href="news.php">NEWS</a></li>
+                <li><a href="#">REVIEWS</a></li>
+                <li><a href="admindash.html">DASHBOARD</a></li>
+                <li class="search-menu-item">
+                    <div class="search">
+                        <input type="text" class="search__input" placeholder="Search...">
+                        <div class="search__icon">
+                            <ion-icon name="search"></ion-icon>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="hamburger" id="hamburger">
+            <ion-icon name="menu-outline"></ion-icon>
+        </div>
+    </div>
+
+    <h1>Upload New App</h1>
+    <p id="message"></p>
+
+    <form id="uploadForm" enctype="multipart/form-data">
+        <label for="appName">App Name:</label>
+        <input type="text" id="appName" name="appName" required>
+        
+        <label for="appDescription">App Description:</label>
+        <textarea id="appDescription" name="appDescription" required></textarea>
+        
+        <label for="appImage">App Image:</label>
+        <input type="file" id="appImage" name="image" accept="image/*" required>
+        
+        <label for="appFile">App File:</label>
+        <input type="file" id="appFile" name="file" accept=".zip,.exe,.EXE,.pdf" required>
+        
+        <button type="submit">Upload App</button>
+    </form>
+
+    <!-- Progress bar -->
+    <div id="progressWrapper" style="display:none;">
+        <label for="uploadProgress">Upload Progress:</label>
+        <progress id="uploadProgress" value="0" max="100" style="width: 100%;"></progress>
+        <span id="uploadPercentage">0%</span>
+    </div>
+
+    <script>
+        document.getElementById('uploadForm').addEventListener('submit', function(event) {
+            event.preventDefault();  // Prevent default form submission
+
+            const formData = new FormData(this);
+            const progressWrapper = document.getElementById('progressWrapper');
+            const progressBar = document.getElementById('uploadProgress');
+            const uploadPercentage = document.getElementById('uploadPercentage');
+            const messageElement = document.getElementById('message');
+
+            // Show progress bar
+            progressWrapper.style.display = 'block';
+
+            // Create a new XMLHttpRequest
+            const xhr = new XMLHttpRequest();
+            xhr.open('POST', 'index.php', true);
+
+            // Update progress bar
+            xhr.upload.addEventListener('progress', function(e) {
+                if (e.lengthComputable) {
+                    const percentComplete = (e.loaded / e.total) * 100;
+                    progressBar.value = percentComplete;
+                    uploadPercentage.textContent = Math.round(percentComplete) + '%';
+                }
+            });
+
+            // Handle upload completion
+            xhr.onload = function() {
+                if (xhr.status === 200) {
+                    const response = JSON.parse(xhr.responseText);
+                    if (response.success) {
+                        messageElement.style.color = 'green';
+                        messageElement.textContent = 'Upload completed successfully!';
+                    } else if (response.error) {
+                        messageElement.style.color = 'red';
+                        messageElement.textContent = response.error;
+                    }
+                } else {
+                    messageElement.style.color = 'red';
+                    messageElement.textContent = 'An error occurred during the upload.';
+                }
+
+                // Hide progress bar after completion
+                progressWrapper.style.display = 'none';
+            };
+
+            // Handle errors
+            xhr.onerror = function() {
+                messageElement.style.color = 'red';
+                messageElement.textContent = 'An error occurred during the upload.';
+            };
+
+            // Send form data via XMLHttpRequest
+            xhr.send(formData);
+        });
+    </script>
+</body>
+</html>

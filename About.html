@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Amarante&display=swap" rel="stylesheet">
+
+    <title>About</title>
+   
+    <style>
+      body {
+          font-family: 'Poppins', sans-serif;
+          margin: 0;
+          padding: 0;
+          background-color: #121212;
+          color: #f0f0f0;
+          line-height: 1.8;
+      }
+
+      .navbar {
+          background-color: #1e1e1e;
+          padding: 20px 50px;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+      }
+
+      .navbar .logo {
+          font-size: 28px;
+          font-weight: 600;
+          color: #ffcc00;
+      }
+
+      .navbar ul {
+          list-style: none;
+          display: flex;
+          gap: 20px;
+      }
+
+      .navbar a {
+          color: #f0f0f0;
+          text-decoration: none;
+          font-weight: 500;
+          transition: color 0.3s;
+      }
+
+      .navbar a:hover {
+          color: #ffcc00;
+      }
+
+      .landing-section {
+          position: relative;
+          background-image: url('images/vecteezy_view-of-futuristic-space-station-orbiting-planet_30655516.jpg');
+          background-size: cover;
+          background-position: center;
+          height: 500px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: #f0f0f0;
+          text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+          text-align: center;
+      }
+
+      .landing-section h1 {
+          font-size: 48px;
+          font-weight: 700;
+          margin: 0;
+      }
+
+      .landing-section p {
+          font-size: 18px;
+          margin-top: 10px;
+      }
+
+      .about-content {
+          padding: 60px 20px;
+          max-width: 1000px;
+          margin: auto;
+          background-color: #1e1e1e;
+          border-radius: 10px;
+          box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+      }
+
+      h1, h2 {
+          color: #ffcc00;
+      }
+
+      .why-choose h3 {
+          color: #ffcc00;
+      }
+
+      .why-choose ul {
+          list-style-type: none;
+          padding: 0;
+          margin-top: 20px;
+      }
+
+      .why-choose li {
+          margin-bottom: 30px;
+      }
+
+      .service {
+          border: 1px solid #444;
+          border-radius: 5px;
+          padding: 20px;
+          margin-bottom: 20px;
+          transition: transform 0.3s, box-shadow 0.3s;
+          background-color: #282828;
+      }
+
+      .service:hover {
+          transform: translateY(-5px);
+          box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+      }
+
+      footer {
+          background-color: #1e1e1e;
+          padding: 40px 0;
+          color: #f0f0f0;
+          text-align: center;
+      }
+
+      footer a {
+          color: #ffcc00;
+          text-decoration: none;
+          font-weight: 600;
+      }
+
+      footer a:hover {
+          text-decoration: underline;
+      }
+
+      .footer__nav ul {
+          list-style-type: none;
+          padding: 0;
+      }
+
+      .footer__nav h2 {
+          color: #ffcc00;
+      }
+      .menu ul li a:hover {
+    color:  #ffcc00;
+}
+.footer__logo{
+  font-family: 'Amarante',cursive;
+}
+  </style>
+   
+</head>
+<body>
+  <div class="main">
+    <div class="navbar">
+        <div class="icon">
+            <h2 class="logo">xuremi</h2>
+        </div>
+        <div class="menu" id="menu">
+            <ul>
+                <li><a href="index.php">HOME</a></li>
+                
+                <li><a href="customercompany.php">PRODUCTS</a></li>
+                <li><a href="About.html">ABOUT</a></li>
+                
+                <li><a href="news.php">NEWS</a></li>
+                <li><a href="#">REVIEWS</a></li>
+                <li class="search-menu-item">
+                    <div class="search">
+                        <input type="text" class="search__input" placeholder="Search...">
+                        <div class="search__icon">
+                            <ion-icon name="search"></ion-icon>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="hamburger" id="hamburger">
+            <ion-icon name="menu-outline"></ion-icon>
+        </div>
+    </div>
+</div>
+    <!-- Landing Section with Image and Text -->
+    <div class="landing-section">
+      <div class="overlay">
+          <h1>Welcome to Xuremi</h1>
+          <p>Empowering businesses and individuals with cutting-edge technology solutions</p>
+      </div>
+  </div>
+
+    <div class="about-content">
+        <style>
+            p{
+                padding-top: 20px;
+                
+            }
+        </style>
+        <h1>Who or What is Xuremi</h1> 
+
+        <p>
+          At Xuremi, we are driven by a passion for innovation and excellence. Founded by a dedicated software engineer from Kenya, we exist to help individuals and businesses thrive in the fast-evolving world of technology. Our mission is simple: to empower you through customized software solutions that are as unique as your needs. We harness the latest technological advancements to ensure you meet your goals with precision and efficiency.
+        </p>
+<div class="why-choose">
+  <h2>Why Choose Xuremi?</h2>
+  <p>When you partner with us, you’re not just hiring a service provider—you’re gaining a technology partner committed to understanding your vision and turning it into reality. Here's why we stand out:</p>
+  <ul>
+      <li>
+          <h3>Tailored Solutions</h3>
+          <p>No two businesses are the same. That’s why we don’t offer generic solutions. Instead, we deliver custom-built software designed to solve your specific challenges and fuel your growth.</p>
+      </li>
+      <li>
+          <h3>Cutting-Edge Technology</h3>
+          <p>Our expertise in Artificial Intelligence, Machine Learning, Web Development, and Custom Applications ensures you get the most advanced, efficient, and scalable solutions available.</p>
+      </li>
+      <li>
+          <h3>Transparency and Communication</h3>
+          <p>From concept to completion, we believe in clear communication and transparency. You’ll know exactly where your project stands every step of the way.</p>
+      </li>
+      <li>
+          <h3>End-to-End Support</h3>
+          <p>Our relationship doesn’t end when the project is completed. We offer ongoing support and updates, ensuring that your software stays at the cutting edge.</p>
+      </li>
+  </ul>
+</div>
+        <h2>What We Offer</h2>
+
+        <div class="services">
+            <div class="service">
+                <h3>Artificial Intelligence</h3>
+                <p>
+                    AI has come a long way in the past decade, and at Xuremi, we harness the power of advanced processors to develop AI applications that can automate tasks and improve efficiency in everyday life. From mobile devices to powerful computing systems, our AI solutions aim to make technology more intuitive and accessible.
+                </p>
+            </div>
+
+            <div class="service">
+                <h3>Machine Learning</h3>
+                <p>
+                    Machine learning is at the core of our AI projects. We train models on data to create solutions that learn and adapt over time, meeting user needs more effectively. For advanced users, we offer deep learning integrations, refining AI systems to deliver highly accurate results and perform complex tasks with human-like precision.
+                </p>
+            </div>
+
+            <div class="service">
+                <h3>Web Development</h3>
+                <p>
+                    In a world where website creation has been simplified by template-driven tools, Xuremi stands out by offering authentic, custom-made websites that are both functional and visually stunning. We ensure that every website we build reflects your unique vision, with seamless performance and a design that leaves a lasting impression.
+                </p>
+            </div>
+
+            <div class="service">
+                <h3>Web Design</h3>
+                <p>
+                    Creating a memorable brand begins with a signature web design. We work closely with our clients to develop custom designs that align with their branding strategy, ensuring that their online presence is as unique as their business.
+                </p>
+            </div>
+
+            <div class="service">
+                <h3>Custom Application Development</h3>
+                <p>
+                    Off-the-shelf applications don't always meet specific needs. That's why Xuremi offers fully customizable app development. Whether you're building an app for personal use or launching a product for a wider audience, we help you create software that perfectly fits your goals and can be distributed across major app stores, including the Xuremi Store.
+                </p>
+            </div>
+
+            <div class="service">
+                <h3>Mobile and Desktop Applications</h3>
+                <p>
+                    We develop applications for both mobile and desktop platforms, catering to industries like education, healthcare, finance, and more. Our apps are designed to improve efficiency and simplify daily tasks, ensuring you have access to top-quality software that enhances productivity.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer__addr">
+          <h1 class="footer__logo">xuremi</h1>
+              
+          <h2>Contact</h2>
+          
+          <address>
+            +254 714 0568 36<br>
+                
+            <a class="footer__btn" href="mailto:004techartist@gmail.com">Email Us</a>
+          </address>
+        </div>
+        
+        <ul class="footer__nav">
+          <li class="nav__item">
+            <h2 class="nav__title">Media</h2>
+      
+            <ul class="nav__ul">
+              <li>
+                <a href="customercompany.php">Products</a>
+              </li>
+      
+              <li>
+                <a href="#">Print</a>
+              </li>
+                  
+              <li>
+                <a href="#">Alternative Ads</a>
+              </li>
+            </ul>
+          </li>
+          
+          <li class="nav__item nav__item--extra">
+            <h2 class="nav__title">Technology</h2>
+            
+            <ul class="nav__ul nav__ul--extra">
+              <li>
+                <a href="#">Hardware Design</a>
+              </li>
+              
+              <li>
+                <a href="#">Software Design</a>
+              </li>
+              
+              <li>
+                <a href="#">Digital Signage</a>
+              </li>
+              
+              <li>
+                <a href="#">Automation</a>
+              </li>
+              
+              <li>
+                <a href="#">Artificial Intelligence</a>
+              </li>
+              
+              <li>
+                <a href="#">IoT</a>
+              </li>
+            </ul>
+          </li>
+          
+          <li class="nav__item">
+            <h2 class="nav__title">Legal</h2>
+            
+            <ul class="nav__ul">
+              <li>
+                <a href="#">Privacy Policy</a>
+              </li>
+              
+              <li>
+                <a href="#">Terms of Use</a>
+              </li>
+              
+              <li>
+                <a href="#">Sitemap</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+        
+        <div class="legal">
+          <p>&copy; 2024 Xuremi. All rights reserved.</p>
+          
+          <div class="legal__links">
+            <span>Made with <span class="heart">♥</span> remotely from Kenya</span>
+          </div>
+        </div>
+      </footer>
+  <script src="script.js"></script>
+</body>
+</html>

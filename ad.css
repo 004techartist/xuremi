@@ -1,0 +1,95 @@
+/* General styling */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+/* Ad container */
+.ad-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #1a1a1a;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 900px;
+    margin: 40px auto;
+    color: white;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Left section styling */
+.ad-left {
+    flex: 1;
+    padding: 20px;
+}
+
+/* Image logo styling */
+.ad-logo-img {
+    max-width: 150px; /* Adjust size as needed */
+    margin-bottom: 20px;
+}
+
+/* Headings and paragraphs */
+h2 {
+    font-size: 28px;
+    margin-bottom: 15px;
+    color: #4CAF50; /* Xuremi's brand color */
+}
+
+p {
+    font-size: 16px;
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+/* Button styling */
+.cta-button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: #45a049;
+}
+
+/* Right section styling */
+.ad-right {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ad-right img {
+    max-width: 100%;
+    border-radius: 10px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .ad-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .ad-right {
+        margin-top: 20px;
+    }
+
+    h2 {
+        font-size: 22px;
+    }
+
+    p {
+        font-size: 14px;
+    }
+}

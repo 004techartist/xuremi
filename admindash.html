@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="adm.css">
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <div class="main"></div>
+    <div class="navbar">
+        <div class="icon">
+            <h2 class="logo">Xuremi</h2>
+        </div>
+        <div class="menu" id="menu">
+            <ul>
+                <li><a href="index.php">HOME</a></li>
+                <li><a href="customercompany.php">PRODUCTS</a></li>
+                <li><a href="About.html">ABOUT</a></li>
+                <li><a href="#">CONTACTS</a></li>
+                <li><a href="news.php">NEWS</a></li>
+                <li><a href="#">REVIEWS</a></li>
+                <li class="search-menu-item">
+                    <div class="search">
+                        <input type="text" class="search__input" placeholder="Search...">
+                        <div class="search__icon">
+                            <ion-icon name="search"></ion-icon>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="hamburger" id="hamburger">
+            <ion-icon name="menu-outline"></ion-icon>
+        </div>
+    </div>
+    <header>
+        <h1>Admin Dashboard</h1>
+    </header>
+    
+    <div class="dashboard">
+        <div class="card" onclick="window.location.href='adminupload.html'">
+            <h2>Upload App</h2>
+            <p>Click here to upload new applications to the platform.</p>
+        </div>
+        
+        <div class="card" onclick="window.location.href='blogtest.php'">
+            <h2>Create Blog</h2>
+            <p>Write and publish new blog posts for the website.</p>
+        </div>
+        <div class="card" onclick="window.location.href='appdeletion.php'">
+            <h2>Delete an App</h2>
+            <p>Delete an uploaded app for the website.</p>
+        </div>
+        <div class="card" onclick="window.location.href='blogDeletion.php'">
+            <h2>Delete a Blog</h2>
+            <p>Delete an uploaded blog for the website.</p>
+        </div>
+        <div class="card" onclick="window.location.href='SignedUpUsers.php'">
+            <h2>View Users </h2>
+            <p>View all users that have signed up  for the website.</p>
+
+        </div>
+        <div class="card" onclick="window.location.href='private_upload.php'">
+            <h2>Private App Upload </h2>
+            <p>Upload a product safely and privately to a customer.</p>
+
+        </div>
+        <div class="card" onclick="window.location.href='addevent.php'">
+            <h2>Add An Event </h2>
+            <p>Add an upcoming event to the website.</p>
+
+        </div>
+        <div class="card" onclick="window.location.href='admin.php'">
+            <h2>View Uploaded Files  </h2>
+            <p>View a user uploaded files from the website.</p>
+
+        </div>
+        <div class="card" onclick="window.location.href='admin_messages.php'">
+            <h2>View Sent Messages </h2>
+            <p>View a user messages from the website.</p>
+
+        </div>
+    </div>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 20px;
+        }
+
+        header h1 {
+            font-size: 2em;
+            color: #333;
+        }
+
+        .dashboard {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+
+        .card {
+            width: 300px;
+            padding: 20px;
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            text-align: center;
+            transition: transform 0.2s;
+        }
+
+        .card h2 {
+            margin: 0;
+            color: #007bff;
+        }
+
+        .card p {
+            color: #555;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.15);
+        }
+    </style>
+    <script src="script.js"></script>
+</body>
+</html>

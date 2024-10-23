@@ -1,0 +1,382 @@
+
+        /* General body styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ecf0f3;
+            padding: 20px;
+            margin: 0;
+        }
+
+   
+
+
+/* LOGO */
+.logo {
+    color: #FFFFFF;
+    font-size: 35px;
+    font-family: Bradley Hand, cursive;
+}
+
+/* MENU */
+.menu {
+    display: flex;
+    align-items: center;
+    
+}
+
+.menu ul {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+   
+}
+
+.menu ul li {
+    list-style: none;
+    margin: 0 20px;
+}
+
+.menu ul li a {
+    text-decoration: none;
+    color: #FBFFFF;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 14px;
+    transition: 0.4s ease-in-out;
+}
+
+.menu ul li a:hover {
+    color:  #00ffff;
+}
+
+/* NEUMORPHIC SEARCH BAR */
+.search {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.search__input {
+    width: 250px;
+    height: 40px;
+    border: none;
+    border-radius: 20px;
+    padding-left: 50px;
+    background-color: #131419;
+    box-shadow: inset 8px 8px 15px #0e0f13, inset -8px -8px 15px #17181d;
+    color: #FBFFFF;
+    font-size: 14px;
+}
+
+.search__input::placeholder {
+    color: #aaaaaa;
+}
+
+.search__icon {
+    position: absolute;
+    left: 15px;
+    color: #aaaaaa;
+    font-size: 20px;
+}
+
+/* HAMBURGER MENU */
+.hamburger {
+    display: none;
+    font-size: 30px;
+    color: #FBFFFF;
+    cursor: pointer;
+}
+
+/* DROPDOWN EFFECT FOR MENU */
+.menu ul {
+    transition: max-height 0.3s ease;
+}
+
+.menu ul.collapsed {
+    max-height: 0;
+    overflow: hidden;
+    display: none;
+    position: fixed;
+}
+
+.menu ul.expanded {
+    max-height: 500px;
+    display: flex;
+    flex-direction: column;
+    background-color: #131419;
+    border-radius: 20px;
+    box-shadow: 8px 8px 15px #0e0f13, -8px -8px 15px #17181d;
+    position: absolute;
+    top: 75px;
+    right: 20px;
+    width: 250px;
+}
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        /* Neumorphic style for cards and sections */
+        .card, .admin-section {
+            background-color: #ecf0f3;
+            border-radius: 20px;
+            box-shadow: 9px 9px 16px #b8bcc2, -9px -9px 16px #fff;
+            padding: 20px;
+            margin-bottom: 20px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .card:hover, .admin-section:hover {
+            transform: translateY(-5px);
+            box-shadow: 10px 10px 20px #b8bcc2, -10px -10px 20px #fff;
+        }
+
+        .dashboardContainer {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #5e72e4;
+            color: white;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            box-shadow: 4px 4px 8px #b8bcc2, -4px -4px 8px #fff;
+            margin-top: 20px;
+            display: block;
+            width: 100%;
+        }
+
+        button:hover {
+            background-color: #4051b5;
+        }
+
+        /* Form styles */
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        form input, form textarea {
+            margin-bottom: 15px;
+            padding: 10px;
+            border-radius: 10px;
+            border: 1px solid #ccc;
+            box-shadow: inset 4px 4px 8px #b8bcc2, inset -4px -4px 8px #fff;
+        }
+
+        /* Menu bar */
+        .navbar {
+            width: 100%;
+            height: 75px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 20px;
+            background-color: #5e72e4;
+        }
+
+        .navbar ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        .navbar li {
+            margin: 0 15px;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        .navbar a:hover {
+            text-decoration: underline;
+        }
+
+        /* Uploaded apps section */
+        .uploadedApps {
+            margin-top: 30px;
+        }
+/* RESPONSIVE STYLES */
+@media (max-width: 768px) {
+    .menu ul {
+        flex-direction: column;
+        display: none;
+    }
+
+    .menu ul.expanded {
+        display: flex;
+    }
+
+    .search-menu-item {
+        margin-left: 0;
+    }
+
+    .hamburger {
+        display: block;
+        z-index: 1;
+    }
+
+    .navbar {
+        justify-content: space-between;
+        z-index: 1;
+        
+        
+    }}
+        .appCard {
+            background-color: #ecf0f3;
+            border-radius: 20px;
+            box-shadow: 9px 9px 16px #b8bcc2, -9px -9px 16px #fff;
+            padding: 20px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .appCard img {
+            width: 50px;
+            height: 50px;
+            border-radius: 10px;
+        }
+        .dashboardsignup {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 60px;
+            align-items: center;
+            margin-left: 22%;
+        }
+        
+        .cardsignup {
+            width: 300px;
+            padding: 20px;
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            text-align: center;
+            transition: transform 0.2s;
+            align-items: center;
+        }
+        .cardsignup:hover{
+            transform: scale(1.05);
+            box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.15);
+        }
+
+
+        .userT {
+            width: 100%; /* Full width */
+            border-collapse: collapse; /* Collapse borders */
+            margin: 20px 0; /* Margin around the table */
+        }
+        
+        .userT th, .userT td {
+            padding: 15px; /* Inner spacing */
+            text-align: left; /* Left align text */
+            border-bottom: 1px solid #ddd; /* Bottom border */
+        }
+        
+        .userT th {
+            background-color: #4CAF50; /* Header background color */
+            color: white; /* Header text color */
+        }
+        
+        .userT tr:nth-child(even) {
+            background-color: #f2f2f2; /* Alternating row color */
+        }
+        
+        .userT tr:hover {
+            background-color: #e0e0e0; /* Row hover effect */
+        }
+        
+        .online {
+            color: green; /* Online text color */
+        }
+        
+        .offline {
+            color: red; /* Offline text color */
+        }
+        
+        .userT td {
+            transition: background-color 0.3s; /* Smooth transition for hover */
+        }
+        
+  .blTable {
+    width: 100%; /* Full width */
+    border-collapse: collapse; /* Collapse borders */
+    margin: 20px 0; /* Margin around the table */
+}
+
+.blTable th, .blogTable td {
+    padding: 15px; /* Inner spacing */
+    text-align: left; /* Left align text */
+    border-bottom: 1px solid #ddd; /* Bottom border */
+}
+
+.blTable th {
+    background-color: #4CAF50; /* Header background color */
+    color: white; /* Header text color */
+}
+
+.blTable tr:nth-child(even) {
+    background-color: #f2f2f2; /* Alternating row color */
+}
+
+.blTable tr:hover {
+    background-color: #e0e0e0; /* Row hover effect */
+}
+
+.blTable .delete-button {
+    background-color: #f44336; /* Red background for delete button */
+    color: white; /* Button text color */
+    border: none; /* Remove border */
+    padding: 5px 10px; /* Button padding */
+    cursor: pointer; /* Pointer cursor */
+    transition: background-color 0.3s; /* Smooth transition for hover */
+}
+
+.blTable .delete-button:hover {
+    background-color: #c62828; /* Darker red on hover */
+}
+/* RESPONSIVE STYLES */
+@media (max-width: 648px) {
+    .menu ul {
+        flex-direction: column;
+        display: none;
+    }
+
+    .menu ul.expanded {
+        display: flex;
+    }
+
+    .search-menu-item {
+        margin-left: 0;
+    }
+
+    .hamburger {
+        display: block;
+        z-index: 1;
+    }
+
+    .navbar {
+        justify-content: space-between;
+        z-index: 1;
+        
+        
+    }}
+
+    

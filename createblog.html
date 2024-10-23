@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="adm.css">
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Blog</title>
+</head>
+<body>
+
+
+    <h1>Upload a Blog</h1>
+
+    <!-- Messages will appear here -->
+    <div id="message"></div>
+
+    <form id="blogForm" enctype="multipart/form-data">
+        <div>
+            <label for="title">Blog Title:</label>
+            <input type="text" name="title" id="title" required>
+        </div>
+        <div>
+            <label for="content">Content:</label>
+            <textarea name="content" id="content" required></textarea>
+        </div>
+        <div>
+            <label for="thumbnail">Blog Thumbnail (JPG, PNG, GIF):</label>
+            <input type="file" name="thumbnail" id="thumbnail" accept="image/*" required>
+        </div>
+        <div>
+            <button type="submit">Upload Blog</button>
+        </div>
+    </form>
+
+    <script>
+        // Handle form submission using AJAX
+        document.getElementById('blogForm').addEventListener('submit', function (e) {
+            e.preventDefault();  // Prevent the form from submitting the traditional way
+
+            const formData = new FormData(this); // Gather form data
+
+            // Use fetch to send data to the PHP script
+            fetch('admupload.php', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json()) // Expect a JSON response from the server
+            .then(data => {
+                const messageDiv = document.getElementById('message');
+                
+                if (data.success) {
+                    messageDiv.innerHTML = `<p style='color: green;'>${data.success}</p>`;
+                } else if (data.error) {
+                    messageDiv.innerHTML = `<p style='color: red;'>${data.error}</p>`;
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                document.getElementById('message').innerHTML = "<p style='color: red;'>An error occurred during the upload process.</p>";
+            });
+        });
+    </script>
+</body>
+</html>

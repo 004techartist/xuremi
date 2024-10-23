@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="style.css">
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <title>App Details</title>
+</head>
+<body>
+    <div class="main">
+        <div class="navbar">
+            <div class="icon">
+                <h2 class="logo">Xuremi</h2>
+            </div>
+        
+            <div class="menu" id="menu">
+                <ul>
+                    <li><a href="index.php">HOME</a></li>
+                    <li><a href="customercompany.php">PRODUCTS</a></li>
+                    <li><a href="About.html">ABOUT</a></li>
+                    <li><a href="#">NEWS</a></li>
+                    <li><a href="#">REVIEWS</a></li>
+                    <li class="search-menu-item">
+                        <div class="search">
+                            <input type="text" class="search__input" placeholder="Search...">
+                            <div class="search__icon">
+                                <ion-icon name="search"></ion-icon>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="hamburger" id="hamburger">
+                <ion-icon name="menu-outline"></ion-icon>
+            </div>
+        </div>
+    </div>
+
+    <div class="app-details">
+        <!-- App Header -->
+        <div class="app-header">
+            <img src="" alt="App Image" id="appImage">
+            <div>
+                <h2 id="appName">App Name</h2>
+                <p id="appRating">Rating: Loading...</p>
+            </div>
+        </div>
+
+        <!-- App Description -->
+        <div class="app-description">
+            <p id="appDescription">
+                Loading description...
+            </p>
+        </div>
+
+        <!-- Install Button -->
+        <a href="#" class="install-btn">Install App</a>
+
+        <!-- Rating Section -->
+        <div class="rating">
+            <span>Rate this app:</span>
+            <form id="rateAppForm">
+                <input type="number" id="userRating" min="1" max="5" required>
+                <button type="submit">Submit Rating</button>
+            </form>
+        </div>
+
+        <!-- User Comments Section -->
+        <div class="comments-section">
+            <h3>User Comments</h3>
+            <!-- Existing Comments (dynamically added) -->
+            <div id="commentsList"></div>
+
+            <!-- Add New Comment -->
+            <div class="comment-form">
+                <textarea id="newComment" rows="4" placeholder="Leave your comment here..."></textarea>
+                <button onclick="submitComment()">Submit Comment</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Get app ID from the URL parameters
+        const appId = new URLSearchParams(window.location.search).get('appId');
+
+        // Fetch and display app details
+        function loadAppDetails() {
+            fetch(`/get-app-details?appId=${appId}`)
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('appName').textContent = data.name;
+                    document.getElementById('appDescription').textContent = data.description;
+                    document.getElementById('appImage').src = data.image;
+                    document.getElementById('appRating').textContent = `Rating: ${data.averageRating}/5 (${data.ratingsCount} ratings)`;
+                })
+                .catch(error => console.error('Error loading app details:', error));
+        }
+
+        // Submit rating
+        const rateAppForm = document.getElementById('rateAppForm');
+        rateAppForm.addEventListener('submit', function (event) {
+            event.preventDefault();
+            const rating = document.getElementById('userRating').value;
+
+            fetch('/submit-rating', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ appId, rating })
+            })
+            .then(response => response.json())
+            .then(data => {
+                alert(data.message);
+                loadAppDetails();  // Refresh app details to update the average rating
+            })
+            .catch(error => console.error('Error submitting rating:', error));
+        });
+
+        // Fetch and display user comments
+        function loadComments() {
+            fetch(`/get-comments?appId=${appId}`)
+                .then(response => response.json())
+                .then(data => {
+                    const commentsList = document.getElementById('commentsList');
+                    commentsList.innerHTML = '';
+                    data.comments.forEach(comment => {
+                        const commentDiv = document.createElement('div');
+                        commentDiv.classList.add('comment');
+                        commentDiv.innerHTML = `<h4>${comment.user}</h4><p>${comment.text}</p>`;
+                        commentsList.appendChild(commentDiv);
+                    });
+                })
+                .catch(error => console.error('Error loading comments:', error));
+        }
+
+        // Submit new comment
+        function submitComment() {
+            const commentText = document.getElementById('newComment').value;
+            if (commentText) {
+                fetch('/submit-comment', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ appId, comment: commentText })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    alert(data.message);
+                    loadComments();  // Refresh comments after submission
+                    document.getElementById('newComment').value = '';  // Clear comment box
+                })
+                .catch(error => console.error('Error submitting comment:', error));
+            } else {
+                alert("Please write a comment before submitting.");
+            }
+        }
+
+        // Load initial app details and comments on page load
+        loadAppDetails();
+        loadComments();
+    </script>
+</body>
+</html>
